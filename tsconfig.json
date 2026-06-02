@@ -3,7 +3,7 @@
     "lib": ["ES2025"],
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
-    "types": ["node", "express"],
+    "types": ["node", "express", "cors", "morgan"],
     "paths": {
       "~/*": ["./src/*"],
       "~env": ["./env.ts"]
