@@ -3,7 +3,7 @@ import express from 'express'
 import rateLimit from 'express-rate-limit'
 import helmet from 'helmet'
 import morgan from 'morgan'
-import { env, isTestEnv } from './env.ts'
+import { env, isTestEnv } from '#/env.ts'
 
 export const app = express()
 

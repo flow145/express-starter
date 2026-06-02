@@ -11,7 +11,7 @@
   "repository": "git@github.com:flow145/express-starter.git",
   "scripts": {
     "dev": "node --watch src/index.ts",
-    "start": "node src/index.ts",
+    "start": "APP_STAGE=prod node src/index.ts",
     "format": "biome format --reporter=summary",
     "format:fix": "pnpm format --write",
     "check": "biome check --reporter=summary",
@@ -37,5 +37,8 @@
     "@types/node": "~24.12.4",
     "lefthook": "~2.1.9",
     "typescript": "~6.0.3"
+  },
+  "imports": {
+    "#/*": "./src/*"
   }
 }
