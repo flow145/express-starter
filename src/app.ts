@@ -19,7 +19,7 @@ app.use(
     legacyHeaders: false,
   }),
 )
-app.use(morgan('dev', { skip: isTestEnv }))
+app.use(morgan(env.LOG_LEVEL, { skip: isTestEnv }))
 
 app.get('/health', (_req, res) => {
   res.status(200).json({

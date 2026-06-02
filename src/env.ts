@@ -3,7 +3,7 @@ import { z } from 'zod'
 
 process.env.APP_STAGE = process.env.APP_STAGE || 'dev'
 
-// const isProduction = process.env.APP_STAGE === 'production'
+const isProduction = process.env.APP_STAGE === 'prod'
 const isDevelopment = process.env.APP_STAGE === 'dev'
 const isTesting = process.env.APP_STAGE === 'test'
 const isStaging = process.env.APP_STAGE === 'staging'
@@ -37,6 +37,10 @@ const envSchema = z.object({
     .max(60 * 60 * 1000)
     .default(15 * 60 * 1000),
   RATE_LIMIT_MAX_REQUESTS: z.coerce.number().int().min(1).max(10_000).default(100),
+
+  LOG_LEVEL: z
+    .enum(['combined', 'common', 'dev', 'short', 'tiny'])
+    .default(isProduction ? 'combined' : 'dev'),
 })
 
 export type Env = z.infer<typeof envSchema>
