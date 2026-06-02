@@ -16,6 +16,27 @@ const envSchema = z.object({
   NODE_ENV: z.enum(['development', 'production', 'test']).default('development'),
   APP_STAGE: z.enum(['dev', 'prod', 'test', 'staging']).default('dev'),
   PORT: z.coerce.number().int().min(1).max(65535).default(3000),
+
+  CORS_ORIGINS: z
+    .string()
+    .default('')
+    .transform((value) =>
+      value
+        .split(',')
+        .map((origin) => origin.trim())
+        .filter(Boolean),
+    )
+    .pipe(
+      z.array(z.union([z.httpUrl(), z.url({ protocol: /^https?$/, hostname: /^localhost$/ })])),
+    ),
+
+  RATE_LIMIT_WINDOW_MS: z.coerce
+    .number()
+    .int()
+    .min(1000)
+    .max(60 * 60 * 1000)
+    .default(15 * 60 * 1000),
+  RATE_LIMIT_MAX_REQUESTS: z.coerce.number().int().min(1).max(10_000).default(100),
 })
 
 export type Env = z.infer<typeof envSchema>
