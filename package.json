@@ -1,0 +1,32 @@
+{
+  "name": "express-starter",
+  "description": "A minimal starter for Express backend with TypeScript",
+  "version": "1.0.0-alpha.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/index.js",
+  "homepage": "https://github.com/flow145/express-starter#readme",
+  "bugs": "https://github.com/flow145/express-starter/issues",
+  "repository": "git@github.com:flow145/express-starter.git",
+  "scripts": {
+    "dev": "node --watch src/index.ts",
+    "format": "biome format --reporter=summary",
+    "format:fix": "pnpm format --write",
+    "check": "biome check --reporter=summary",
+    "check:fix": "pnpm check --write",
+    "typecheck": "tsc"
+  },
+  "dependencies": {
+    "express": "~5.2.1"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.4.16",
+    "@commitlint/cli": "~21.0.2",
+    "@commitlint/config-conventional": "~21.0.2",
+    "@types/express": "~5.0.6",
+    "@types/node": "~24.12.4",
+    "lefthook": "~2.1.9",
+    "typescript": "~6.0.3"
+  }
+}
