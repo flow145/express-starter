@@ -1,14 +1,7 @@
-import express from 'express'
+import { env } from '../env.ts'
+import { app } from './app.ts'
 
-const app = express()
-
-app.get('/health', (_req, res) => {
-  res.status(200).json({
-    status: 'OK',
-    timestamp: new Date().toISOString(),
-  })
-})
-
-app.listen(3000, () => {
-  console.log('Server is running on port 3000')
+app.listen(env.PORT, () => {
+  console.log(`Server is running on http://localhost:${env.PORT}`)
+  console.log(`Environment: ${env.APP_STAGE}`)
 })

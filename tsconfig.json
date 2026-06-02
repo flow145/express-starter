@@ -5,7 +5,8 @@
     "moduleResolution": "NodeNext",
     "types": ["node", "express"],
     "paths": {
-      "~/*": ["./src/*"]
+      "~/*": ["./src/*"],
+      "~env": ["./env.ts"]
     },
 
     /* Build & modules */
@@ -24,5 +25,5 @@
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true
   },
-  "include": ["src"]
+  "include": ["src", "env.ts"]
 }
