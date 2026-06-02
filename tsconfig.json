@@ -4,6 +4,9 @@
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
     "types": ["node", "express"],
+    "paths": {
+      "~/*": ["./src/*"]
+    },
 
     /* Build & modules */
     "noEmit": true,
@@ -13,14 +16,13 @@
     "skipLibCheck": true,
 
     /* Linting */
-    "noUncheckedIndexedAccess": true,
-    "exactOptionalPropertyTypes": true,
-    "noImplicitOverride": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
     "erasableSyntaxOnly": true,
-    "forceConsistentCasingInFileNames": true
+    "noFallthroughCasesInSwitch": true,
+    "forceConsistentCasingInFileNames": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true
   },
   "include": ["src"]
 }
