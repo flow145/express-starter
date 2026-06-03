@@ -9,6 +9,10 @@
   "homepage": "https://github.com/flow145/express-starter#readme",
   "bugs": "https://github.com/flow145/express-starter/issues",
   "repository": "git@github.com:flow145/express-starter.git",
+  "engines": {
+    "node": ">=24",
+    "pnpm": ">=11"
+  },
   "scripts": {
     "dev": "node --watch src/index.ts",
     "start": "APP_STAGE=prod node src/index.ts",
