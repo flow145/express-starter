@@ -4,9 +4,6 @@
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
     "types": ["node", "express", "cors", "morgan"],
-    "paths": {
-      "~/*": ["./src/*"]
-    },
 
     /* Build & modules */
     "noEmit": true,
