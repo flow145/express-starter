@@ -3,6 +3,7 @@ import cors from 'cors'
 import express from 'express'
 import rateLimit from 'express-rate-limit'
 import helmet from 'helmet'
+import { ReasonPhrases, StatusCodes } from 'http-status-codes'
 import morgan from 'morgan'
 
 import { env, isTestEnv } from '#/env.ts'
@@ -25,8 +26,8 @@ app.use(
 app.use(morgan(env.LOG_LEVEL, { skip: isTestEnv }))
 
 app.get('/health', (_req, res) => {
-  res.status(200).json({
-    status: 'OK',
+  res.status(StatusCodes.OK).json({
+    status: ReasonPhrases.OK,
     timestamp: new Date().toISOString(),
   })
 })
