@@ -41,6 +41,14 @@ const envSchema = z.object({
   LOG_LEVEL: z
     .enum(['fatal', 'error', 'warn', 'info', 'debug', 'trace', 'silent'])
     .default(isProduction ? 'info' : 'debug'),
+
+  DATABASE_URL: z
+    .url()
+    .refine((url) => url.startsWith('postgresql://') || url.startsWith('postgres://'), {
+      message: 'Must be a valid Postgres URL',
+    }),
+  DATABASE_POOL_MIN: z.coerce.number().min(0).default(2),
+  DATABASE_POOL_MAX: z.coerce.number().positive().max(50).default(10),
 })
 
 export type Env = z.infer<typeof envSchema>
