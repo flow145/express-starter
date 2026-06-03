@@ -1,14 +1,17 @@
+import cookieParser from 'cookie-parser'
 import cors from 'cors'
 import express from 'express'
 import rateLimit from 'express-rate-limit'
 import helmet from 'helmet'
 import morgan from 'morgan'
+
 import { env, isTestEnv } from '#/env.ts'
 
 export const app = express()
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+app.use(cookieParser())
 app.use(helmet())
 app.use(cors({ origin: env.CORS_ORIGINS, credentials: true }))
 app.use(
