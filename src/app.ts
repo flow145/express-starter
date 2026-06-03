@@ -4,9 +4,9 @@ import express from 'express'
 import rateLimit from 'express-rate-limit'
 import helmet from 'helmet'
 import { ReasonPhrases, StatusCodes } from 'http-status-codes'
-import morgan from 'morgan'
 
-import { env, isTestEnv } from '#/env.ts'
+import { env } from '#/env.ts'
+import { httpLogger } from '#/logger.ts'
 
 export const app = express()
 
@@ -23,7 +23,7 @@ app.use(
     legacyHeaders: false,
   }),
 )
-app.use(morgan(env.LOG_LEVEL, { skip: isTestEnv }))
+app.use(httpLogger)
 
 app.get('/health', (_req, res) => {
   res.status(StatusCodes.OK).json({

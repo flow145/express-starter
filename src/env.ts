@@ -39,8 +39,8 @@ const envSchema = z.object({
   RATE_LIMIT_MAX_REQUESTS: z.coerce.number().int().min(1).max(10_000).default(100),
 
   LOG_LEVEL: z
-    .enum(['combined', 'common', 'dev', 'short', 'tiny'])
-    .default(isProduction ? 'combined' : 'dev'),
+    .enum(['fatal', 'error', 'warn', 'info', 'debug', 'trace', 'silent'])
+    .default(isProduction ? 'info' : 'debug'),
 })
 
 export type Env = z.infer<typeof envSchema>
