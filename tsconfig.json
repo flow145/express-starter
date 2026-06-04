@@ -3,7 +3,16 @@
     "lib": ["ES2025"],
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
-    "types": ["node", "express", "cors", "cookie-parser", "pg", "vitest/globals", "supertest"],
+    "types": [
+      "node",
+      "express",
+      "cors",
+      "cookie-parser",
+      "compression",
+      "pg",
+      "vitest/globals",
+      "supertest"
+    ],
 
     /* Build & modules */
     "noEmit": true,
