@@ -16,7 +16,7 @@ const shutdown = (signal: string) => {
 
   server.close(async (error) => {
     if (error) {
-      logger.error('Error on server close')
+      logger.error(error, 'Error on server close')
       process.exit(1)
     }
 
@@ -24,8 +24,8 @@ const shutdown = (signal: string) => {
       // TODO close db connections
       logger.info('Server shut down gracefully')
       process.exit(0)
-    } catch (_err) {
-      logger.error('Error on graceful shutdown')
+    } catch (err) {
+      logger.error(err, 'Error on graceful shutdown')
       process.exit(1)
     }
   })

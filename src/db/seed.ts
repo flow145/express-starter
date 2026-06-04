@@ -20,8 +20,7 @@ export const seed = async () => {
 
     logger.info('✅ Database seeded successfully!')
   } catch (error) {
-    logger.error('❌ Seeding failed:')
-    logger.error(error)
+    logger.error(error, '❌ Seeding failed:')
     throw error
   }
 }

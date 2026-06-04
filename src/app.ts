@@ -7,6 +7,7 @@ import { ReasonPhrases, StatusCodes } from 'http-status-codes'
 
 import { env } from '#/config/env.ts'
 import { httpLogger } from '#/config/logger.ts'
+import { usersRouter } from '#/modules/users/users.routes.ts'
 
 export const app = express()
 
@@ -31,3 +32,5 @@ app.get('/health', (_req, res) => {
     timestamp: new Date().toISOString(),
   })
 })
+
+app.use('/api/users', usersRouter)
