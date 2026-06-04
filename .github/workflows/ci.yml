@@ -42,3 +42,41 @@ jobs:
 
       - name: Check types
         run: pnpm run typecheck
+
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    env:
+      DATABASE_USER: postgres
+      DATABASE_PASSWORD: postgres
+      DATABASE_MAINTENANCE: postgres
+      DATABASE_PORT: 5432
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v5
+        with:
+          version: ${{ env.PNPM_VERSION }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+
+      - name: Install
+        run: pnpm install
+
+      - name: Start database
+        run: docker compose up -d --wait db
+
+      - name: Test
+        env:
+          DATABASE_URL: postgresql://${{ env.DATABASE_USER }}:${{ env.DATABASE_PASSWORD }}@localhost:${{ env.DATABASE_PORT }}/express_starter_test
+        run: pnpm test
+
+      - name: Cleanup
+        if: always()
+        run: docker compose down -v
