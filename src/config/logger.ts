@@ -33,7 +33,7 @@ export const logger = pino({
 
 const isDebugOrTraceLogLevel = env.LOG_LEVEL === 'debug' || env.LOG_LEVEL === 'trace'
 
-const infoReqSerializer = (req: Request) => ({ method: req.method, url: req.url })
+const infoReqSerializer = (req: Request) => ({ id: req.id, method: req.method, url: req.url })
 const infoResSerializer = (res: Response) => ({ status: res.statusCode })
 
 export const httpLogger = pinoHttp({
