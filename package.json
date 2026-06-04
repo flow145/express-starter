@@ -1,6 +1,6 @@
 {
   "name": "express-starter",
-  "description": "A minimal starter for Express backend with TypeScript",
+  "description": "A practical starter for Express backend apps with TypeScript, PostgreSQL, and Drizzle ORM.",
   "version": "1.0.0-alpha.0",
   "private": true,
   "license": "MIT",
