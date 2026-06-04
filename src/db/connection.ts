@@ -2,7 +2,7 @@ import { remember } from '@epic-web/remember'
 import { drizzle } from 'drizzle-orm/node-postgres'
 import { Pool } from 'pg'
 
-import { env, isProdEnv } from '#/env.ts'
+import { env, isProdEnv } from '#/config/env.ts'
 
 const createPool = () =>
   new Pool({

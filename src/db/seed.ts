@@ -1,6 +1,6 @@
+import { logger } from '#/config/logger.ts'
 import { db } from '#/db/connection.ts'
 import { users } from '#/db/schema.ts'
-import { logger } from '#/logger.ts'
 
 export const seed = async () => {
   logger.info('🌱 Starting database seed...')

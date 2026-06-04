@@ -2,7 +2,7 @@ import type { Request, Response } from 'express'
 import { pino, stdSerializers } from 'pino'
 import { pinoHttp } from 'pino-http'
 
-import { env, isDevEnv } from '#/env.ts'
+import { env, isDevEnv } from '#/config/env.ts'
 
 export const logger = pino({
   level: env.LOG_LEVEL,

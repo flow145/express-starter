@@ -1,9 +1,9 @@
 import { execSync } from 'node:child_process'
 import { sql } from 'drizzle-orm'
 
+import { logger } from '#/config/logger.ts'
 import { db } from '#/db/connection.ts'
 import { users } from '#/db/schema.ts'
-import { logger } from '#/logger.ts'
 
 export default async function setup() {
   logger.info('🗄️ Setting up test database...')

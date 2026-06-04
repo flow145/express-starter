@@ -5,8 +5,8 @@ import rateLimit from 'express-rate-limit'
 import helmet from 'helmet'
 import { ReasonPhrases, StatusCodes } from 'http-status-codes'
 
-import { env } from '#/env.ts'
-import { httpLogger } from '#/logger.ts'
+import { env } from '#/config/env.ts'
+import { httpLogger } from '#/config/logger.ts'
 
 export const app = express()
 
