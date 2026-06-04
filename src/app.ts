@@ -6,7 +6,7 @@ import helmet from 'helmet'
 import { ReasonPhrases, StatusCodes } from 'http-status-codes'
 
 import { env } from '#/config/env.ts'
-import { httpLogger } from '#/config/logger.ts'
+import { httpLogger, logger } from '#/config/logger.ts'
 import { usersRouter } from '#/modules/users/users.routes.ts'
 
 export const app = express()
@@ -22,6 +22,10 @@ app.use(
     max: env.RATE_LIMIT_MAX_REQUESTS,
     standardHeaders: true,
     legacyHeaders: false,
+    logger: {
+      warn: logger.warn,
+      error: logger.error,
+    },
   }),
 )
 app.use(httpLogger)
