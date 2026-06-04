@@ -20,7 +20,7 @@ export const seed = async () => {
 
     logger.info('✅ Database seeded successfully!')
   } catch (error) {
-    logger.error(error, '❌ Seeding failed:')
+    logger.error({ error }, '❌ Seeding failed:')
     throw error
   }
 }
@@ -30,6 +30,6 @@ if (import.meta.url === `file://${process.argv[1]}`)
   seed()
     .then(() => process.exit(0))
     .catch((error) => {
-      logger.error(error)
+      logger.error({ error })
       process.exit(1)
     })

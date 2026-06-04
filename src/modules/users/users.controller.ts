@@ -9,7 +9,7 @@ export const getUsersList = async (_req: Request, res: Response) => {
     const userList = await findAllUsers()
     res.json({ users: userList })
   } catch (error) {
-    logger.error(error, 'Get users error')
+    logger.error({ error }, 'Get users error')
     res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error: 'Failed to fetch users' })
   }
 }

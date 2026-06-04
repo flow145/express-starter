@@ -15,7 +15,7 @@ const createPool = () =>
 export const pool = isProdEnv() ? createPool() : remember('dbPool', createPool)
 
 pool.on('error', (error) => {
-  logger.error(error, 'Unexpected database pool error')
+  logger.error({ error }, 'Unexpected database pool error')
 })
 
 export const db = drizzle({ client: pool, schema })

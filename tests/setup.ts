@@ -22,7 +22,7 @@ export default async function setup() {
 
     logger.info('✅ Test database setup complete')
   } catch (error) {
-    logger.error(error, '❌ Failed to setup test database')
+    logger.error({ error }, '❌ Failed to setup test database')
     throw error
   }
 
@@ -35,7 +35,7 @@ export default async function setup() {
       logger.info('✅ Test database teardown complete')
       process.exit(0)
     } catch (error) {
-      logger.error(error, '❌ Failed to teardown test database:')
+      logger.error({ error }, '❌ Failed to teardown test database:')
       throw error
     }
   }

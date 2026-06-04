@@ -19,7 +19,7 @@ const main = async () => {
 
     server.close(async (error) => {
       if (error) {
-        logger.error(error, 'Error on server close')
+        logger.error({ error }, 'Error on server close')
         process.exit(1)
       }
 
@@ -27,8 +27,8 @@ const main = async () => {
         await pool.end()
         logger.info('Server shut down gracefully')
         process.exit(0)
-      } catch (err) {
-        logger.error(err, 'Error on graceful shutdown')
+      } catch (shutdownError) {
+        logger.error({ error: shutdownError }, 'Error on graceful shutdown')
         process.exit(1)
       }
     })
